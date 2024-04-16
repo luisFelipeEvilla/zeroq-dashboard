@@ -1,8 +1,7 @@
 import { BiUser } from "react-icons/bi";
 import { GoClock } from "react-icons/go";
 import { formatMinutes } from "@/utils";
-import { Office } from "@/app/types/office";
-import { Skeleton } from "@nextui-org/react";
+import { Skeleton, Tooltip } from "@nextui-org/react";
 
 type OfficeCardProps = {
   id: number;
@@ -57,16 +56,19 @@ function Footer(props: { online: boolean; waiting: number; elapsed: string }) {
         props.online ? "bg-[#00b886]" : "bg-[#8a8a8a]"
       } px-4 py-1 w-full flex gap-5 text-white absolute bottom-0`}
     >
-      <div className="flex gap-1 items-center">
-        <BiUser />
-        <span className="">{props.waiting}</span>
-      </div>
+      <Tooltip content="Personas en espera" placement="bottom">
+        <div className="flex gap-1 items-center">
+          <BiUser />
+          <span className="">{props.waiting}</span>
+        </div>
+      </Tooltip>
 
-      <div className="flex gap-1 items-center">
-        <GoClock />
-
-        <span>{props.elapsed}</span>
-      </div>
+      <Tooltip content="Tiempo de espera promedio" placement="bottom">
+        <div className="flex gap-1 items-center">
+          <GoClock />
+          <span>{props.elapsed}</span>
+        </div>
+      </Tooltip>
     </div>
   );
 }
