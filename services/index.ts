@@ -1,7 +1,8 @@
+import { API_BASE_URL } from "@/config";
 import axios from "axios";
 
 export const apiClient = axios.create({
-    baseURL: "http://localhost:3000/api",
+    baseURL: API_BASE_URL,
     headers: {
         "Content-Type": "application/json"
         // here we can add more headers like Authorization, etc.
