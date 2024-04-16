@@ -8,7 +8,7 @@ type filterType = {
 
 export async function getOfficesService(filters : filterType = {}): Promise<Office[]>{
     const response = await apiClient.get("/offices", {
-        // params: filters
+        params: filters
     });
 
     return response.data;

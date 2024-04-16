@@ -1,17 +1,9 @@
 import { BiUser } from "react-icons/bi";
 import { GoClock } from "react-icons/go";
 import { formatMinutes } from '@/utils'
-type OfficardProps = {
-  id: number;
-  name: string;
-  online: boolean;
-  lines: {
-    waiting: number;
-    elapsed: number;
-  }[];
-};
+import { Office } from "@/app/types/office";
 
-export default function OfficeCard(props: OfficardProps) {
+export default function OfficeCard(props: Office) {
   const waiting = props.lines.reduce((acc, line) => acc + line.waiting, 0);
   const elapsed =
     props.lines.reduce((acc, line) => acc + line.elapsed, 0) / props.lines.length;
