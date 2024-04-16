@@ -11,7 +11,5 @@ export async function GET(req: Request, res: Response) {
         return office.name.toLowerCase().includes(name.toLowerCase());
     });
 
-
-    console.log(offices)
     return Response.json(offices);
 }
