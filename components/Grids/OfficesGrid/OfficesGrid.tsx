@@ -9,7 +9,7 @@ export default function OfficesGrid(props: { offices: Office[] }) {
   const { offices, loading } = useOffices();
 
   return (
-    <div className="flex flex-wrap gap-4 h-full w-full">
+    <div className="flex justify-center md:justify-start flex-wrap gap-4 h-full w-full">
       {loading ? (
         <div className="m-auto">
           <Spinner size="lg" color="danger" />

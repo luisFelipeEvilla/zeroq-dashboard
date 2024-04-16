@@ -17,6 +17,7 @@ export default function useOffices() {
 
     useEffect(() => {
         const interval = setInterval(() => {
+            if (loading) return;
             fetchData();
         }, 60000);
 
@@ -26,10 +27,13 @@ export default function useOffices() {
     }, []);
 
     useEffect(() => {
+        console.log("fetching data...")
         fetchData();
     }, [debouncedSearch]);
 
     async function fetchData() {
+        console.log(debouncedSearch);
+        console.log(search)
         setLoading(true);
         const response = await getOfficesService({ name: debouncedSearch });
         setOffices(response);

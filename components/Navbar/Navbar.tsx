@@ -10,7 +10,7 @@ export default function Navbar() {
 
   return (
     <nav className="bg-secondary w-full">
-      <div className="max-w-[1024px] mx-auto py-3">
+      <div className="w-full flex justify-center xl:max-w-[1024px] md:justify-start mx-auto py-3 px-4">
         <form className="">
           <div className="relative">
             <input
@@ -18,7 +18,7 @@ export default function Navbar() {
               onChange={(e) => setSearch(e.target.value)}
               type="text"
               placeholder="Buscar sucursal"
-              className={`w-[350px] bg-white rounded-sm py-[2px] pl-10  text-base
+              className={`w-[300px] md:w-[350px] bg-white rounded-sm py-[2px] pl-10  text-base
               focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-opacity-50`}
             />
             <img

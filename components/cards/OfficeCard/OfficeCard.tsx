@@ -14,7 +14,7 @@ export default function OfficeCard(props: Office) {
     <div
       className={`w-[230px] h-[120px] relative ${
         props.online ? " bg-secondary" : "bg-[#e2e2e2]"
-      }`}
+      } cursor-pointer hover:scale-105`}
     >
       <div className="px-4 py-4">
         <p
