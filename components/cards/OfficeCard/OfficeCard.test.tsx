@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import OfficeCard from "./OfficeCard";
 import { describe } from "node:test";
-import OfficeData from "@/app/mock/offices.json";
+import OfficeData from "@/mock/offices.json";
 import { formatMinutes } from "@/utils";
 
 describe("OfficeCard", () => {

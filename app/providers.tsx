@@ -1,7 +1,7 @@
 "use client";
 
 import { NextUIProvider } from "@nextui-org/react";
-import { OfficeFiltersProvider } from "./context/OfficeFilters";
+import { OfficeFiltersProvider } from "../context/OfficeFilters";
 
 export default function Providers({ children }: any) {
   return (

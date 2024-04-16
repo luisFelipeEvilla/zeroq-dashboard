@@ -1,6 +1,6 @@
 "use client";
 
-import { OfficeFiltersContext } from "@/app/context/OfficeFilters";
+import { OfficeFiltersContext } from "@/context/OfficeFilters";
 import { useContext } from "react";
 
 export default function Navbar() {

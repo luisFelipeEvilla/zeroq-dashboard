@@ -1,9 +1,9 @@
 "use client";
 
-import useOffices from "@/app/hocks/useOffices/OfficesHook";
-import { Office } from "@/app/types/office";
+import useOffices from "@/hocks/useOffices/OfficesHook";
+import { Office } from "@/types/office";
 import OfficeCard from "@/components/cards/OfficeCard/OfficeCard";
-import mockOffices from "@/app/mock/offices.json";
+import mockOffices from "@/mock/offices.json";
 
 export default function OfficesGrid(props: { offices: Office[] }) {
   const { offices, loading } = useOffices({ offices: props.offices });
