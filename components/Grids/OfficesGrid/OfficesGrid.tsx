@@ -1,6 +1,6 @@
 "use client";
 
-import useOffices from "@/hocks/useOffices/OfficesHook";
+import useOffices from "@/hooks/useOffices/OfficesHook";
 import { Office } from "@/types/office";
 import OfficeCard from "@/components/cards/OfficeCard/OfficeCard";
 import mockOffices from "@/mock/offices.json";
