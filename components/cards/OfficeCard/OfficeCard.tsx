@@ -1,7 +1,9 @@
+"use state";
 import { BiUser } from "react-icons/bi";
 import { GoClock } from "react-icons/go";
 import { formatMinutes } from "@/utils";
 import { Skeleton, Tooltip } from "@nextui-org/react";
+import { useState } from "react";
 
 type OfficeCardProps = {
   id: number;
@@ -15,6 +17,8 @@ type OfficeCardProps = {
 };
 
 export default function OfficeCard(props: OfficeCardProps) {
+  const [isOnline, setIsOnline] = useState(props.online);
+
   const waiting = props.lines.reduce((acc, line) => acc + line.waiting, 0);
   const elapsed =
     props.lines.reduce((acc, line) => acc + line.elapsed, 0) /
@@ -23,16 +27,20 @@ export default function OfficeCard(props: OfficeCardProps) {
   const elapsedFormatted = formatMinutes(elapsed);
 
   return (
-    <div className={`w-[230px] relative cursor-pointer hover:scale-105`}>
+    <div
+      // this should be a call to api to update the status of the office
+      // but we are mocking it with a simple toggle
+      onClick={() => setIsOnline(!isOnline)} 
+      className={`w-[230px] relative cursor-pointer hover:scale-105`}>
       <Skeleton isLoaded={!props.isLoading}>
         <div
           className={`px-4 py-4 ${
-            props.online ? " bg-secondary" : "bg-[#e2e2e2]"
+            isOnline ? " bg-secondary" : "bg-[#e2e2e2]"
           }  h-[120px]`}
         >
           <p
             className={`font-semibold ${
-              props.online ? "text-white" : "text-[#8a8a8a]"
+              isOnline ? "text-white" : "text-[#8a8a8a]"
             }`}
           >
             {props.name}
@@ -40,7 +48,7 @@ export default function OfficeCard(props: OfficeCardProps) {
         </div>
 
         <Footer
-          online={props.online}
+          online={isOnline}
           waiting={waiting}
           elapsed={elapsedFormatted}
         />
