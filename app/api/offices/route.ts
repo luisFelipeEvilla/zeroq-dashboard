@@ -12,5 +12,6 @@ export async function GET(req: Request, res: Response) {
     });
 
 
-    return NextResponse.json(offices);
+    console.log(offices)
+    return Response.json(offices);
 }
