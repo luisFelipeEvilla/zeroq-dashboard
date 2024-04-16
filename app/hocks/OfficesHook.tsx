@@ -23,5 +23,5 @@ export default function useOffices() {
         setLoading(false);
     }
 
-    return { offices, loading, fetchData };
+    return { offices, loading, fetchData, error };
 }

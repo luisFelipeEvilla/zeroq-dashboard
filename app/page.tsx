@@ -5,7 +5,7 @@ export default async function Home() {
   const offices = await getOfficesService();
 
   return (
-    <main className="max-w-[1024px] mx-auto py-8">
+    <main className="max-w-[1024px] mx-auto py-8 h-full">
       <OfficesGrid offices={offices} />
     </main>
   );

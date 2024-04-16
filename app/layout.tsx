@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-primary`}>
+      <body className={`${inter.className} bg-primary min-h-screen`}>
         <Header />
         <Providers>
           <Navbar />
