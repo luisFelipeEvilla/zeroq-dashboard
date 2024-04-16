@@ -1,5 +1,4 @@
-import officesData from '@/app/mock/offices.json';
-import { NextResponse } from 'next/server';
+import officesData from '@/mock/offices.json';
 
 export async function GET(req: Request, res: Response) {
     const url = new URL(req.url);
@@ -11,6 +10,5 @@ export async function GET(req: Request, res: Response) {
         return office.name.toLowerCase().includes(name.toLowerCase());
     });
 
-
-    return NextResponse.json(offices);
+    return Response.json(offices);
 }
