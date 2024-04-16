@@ -13,10 +13,21 @@ export default function useOffices() {
     const { search } = useContext(OfficeFiltersContext);
 
     useEffect(() => {
+        const interval = setInterval(() => {
+            fetchData();
+        }, 60000);
+
+        return () => {
+            clearInterval(interval);
+        }
+    }, []);
+
+    useEffect(() => {
         fetchData();
     }, [search]);
 
     async function fetchData() {
+        console.log("hola");
         setLoading(true);
         const response = await getOfficesService({ name: search });
         setOffices(response);
