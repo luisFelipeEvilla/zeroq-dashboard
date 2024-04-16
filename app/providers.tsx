@@ -5,7 +5,7 @@ import { OfficeFiltersProvider } from "./context/OfficeFilters";
 
 export default function Providers({ children }: any) {
   return (
-    <NextUIProvider>
+    <NextUIProvider >
       <OfficeFiltersProvider>{children}</OfficeFiltersProvider>
     </NextUIProvider>
   );

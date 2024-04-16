@@ -1,9 +1,7 @@
 "use client";
 
 import { OfficeFiltersContext } from "@/app/context/OfficeFilters";
-import { useContext, useEffect, useMemo, useState } from "react";
-import debounce from "lodash.debounce";
-import { useDebounce } from "@/app/hocks/useDebounce";
+import { useContext } from "react";
 
 export default function Navbar() {
   const {search, setSearch} = useContext(OfficeFiltersContext);

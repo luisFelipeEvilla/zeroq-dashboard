@@ -6,8 +6,8 @@ import { Office } from "../types/office";
 import { OfficeFiltersContext } from "../context/OfficeFilters";
 import { useDebounce } from "./useDebounce";
 
-export default function useOffices() {
-    const [offices, setOffices] = useState<Office[]>();
+export default function useOffices(props: { offices?: Office[] }) {
+    const [offices, setOffices] = useState<Office[]>(props.offices || []);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
@@ -27,13 +27,10 @@ export default function useOffices() {
     }, []);
 
     useEffect(() => {
-        console.log("fetching data...")
         fetchData();
     }, [debouncedSearch]);
 
     async function fetchData() {
-        console.log(debouncedSearch);
-        console.log(search)
         setLoading(true);
         const response = await getOfficesService({ name: debouncedSearch });
         setOffices(response);

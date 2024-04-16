@@ -1,32 +1,51 @@
 import { BiUser } from "react-icons/bi";
 import { GoClock } from "react-icons/go";
-import { formatMinutes } from '@/utils'
+import { formatMinutes } from "@/utils";
 import { Office } from "@/app/types/office";
+import { Skeleton } from "@nextui-org/react";
 
-export default function OfficeCard(props: Office) {
+type OfficeCardProps = {
+  id: number;
+  name: string;
+  online: boolean;
+  lines: {
+    waiting: number;
+    elapsed: number;
+  }[];
+  isLoading: boolean;
+};
+
+export default function OfficeCard(props: OfficeCardProps) {
   const waiting = props.lines.reduce((acc, line) => acc + line.waiting, 0);
   const elapsed =
-    props.lines.reduce((acc, line) => acc + line.elapsed, 0) / props.lines.length;
-    
+    props.lines.reduce((acc, line) => acc + line.elapsed, 0) /
+    props.lines.length;
+
   const elapsedFormatted = formatMinutes(elapsed);
 
   return (
-    <div
-      className={`w-[230px] h-[120px] relative ${
-        props.online ? " bg-secondary" : "bg-[#e2e2e2]"
-      } cursor-pointer hover:scale-105`}
-    >
-      <div className="px-4 py-4">
-        <p
-          className={`font-semibold ${
-            props.online ? "text-white" : "text-[#8a8a8a]"
-          }`}
+    <div className={`w-[230px] relative cursor-pointer hover:scale-105`}>
+      <Skeleton isLoaded={!props.isLoading}>
+        <div
+          className={`px-4 py-4 ${
+            props.online ? " bg-secondary" : "bg-[#e2e2e2]"
+          }  h-[120px]`}
         >
-          {props.name}
-        </p>
-      </div>
+          <p
+            className={`font-semibold ${
+              props.online ? "text-white" : "text-[#8a8a8a]"
+            }`}
+          >
+            {props.name}
+          </p>
+        </div>
 
-      <Footer online={props.online} waiting={waiting} elapsed={elapsedFormatted} />
+        <Footer
+          online={props.online}
+          waiting={waiting}
+          elapsed={elapsedFormatted}
+        />
+      </Skeleton>
     </div>
   );
 }
